@@ -1,37 +1,26 @@
-baseURL = 'https://example.org/'
+baseURL = 'yunus.tuzun.interise.space'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Yunus Tuzun | Personal Site'
 theme="archie" 
-copyright = "© Athul"
+copyright = "© Yunus Tuzun"
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-
+publishDir = "docs"
 
 [params]
-favicon = "https://img.icons8.com/officel/16/000000/chevron-right.png"
-og_image = "https://raw.githubusercontent.com/athul/archie/master/images/archie-dark.png"
+favicon = "assets/favicon.png"
+og_image = "assets/og-image.png"
 # mode = "auto"
 mode = "toggle"
 useCDN = true
-subtitle = "Minimal and Clean [blog theme for Hugo](https://github.com/athul/archie)"
-description = "Archie is a Minimal and Clean theme for Hugo"
+subtitle = ""
+description = "Tuzun Yunus | Personal Site"
 
 [[params.social]]
 name = "GitHub"
 icon = "github"
-url = "https://github.com/athul/archie"
-
-[[params.social]]
-name = "Twitter"
-icon = "twitter"
-url = "https://github.com/athulcajay/"
-
-[[params.social]]
-name = "GitLab"
-icon = "gitlab"
-url = "https://gitlab.com/athul/"
-
+url = "https://github.com/yunus-tuzun"
 
 [[menu.main]]
 name = "Home"

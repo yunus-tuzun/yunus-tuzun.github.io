@@ -28,7 +28,19 @@ His technical experience covers SAP NetWeaver, Fiori, SAPUI5, OData, RAP, CDS, C
 
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="../css/main.2d8b5d025466bd6ddaba53abadd82452f7b979866a58623830289b480f93bb3b.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="../css/dark.3cc53e265be0aadc134ff08f276085599313959408ee8c32d9cf35ce71670fff.css"  disabled />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="../css/dark.3cc53e265be0aadc134ff08f276085599313959408ee8c32d9cf35ce71670fff.css"  disabled /><script>
+			
+			(function() {
+				var savedTheme = localStorage.getItem("theme-storage");
+				if (!savedTheme) {
+					var darkModeStyle = document.getElementById("darkModeStyle");
+					if (darkModeStyle) darkModeStyle.disabled = false;
+				} else if (savedTheme === "light") {
+					var darkModeStyle = document.getElementById("darkModeStyle");
+					if (darkModeStyle) darkModeStyle.disabled = true;
+				}
+			})();
+		</script>
 </head>
 <body>
         <div class="content"><header>

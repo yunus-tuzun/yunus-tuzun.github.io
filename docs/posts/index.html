@@ -21,7 +21,19 @@
 
 	
 	<link rel="stylesheet" type="text/css" media="screen" href="../css/main.2d8b5d025466bd6ddaba53abadd82452f7b979866a58623830289b480f93bb3b.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="../css/dark.3cc53e265be0aadc134ff08f276085599313959408ee8c32d9cf35ce71670fff.css"  disabled />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="../css/dark.3cc53e265be0aadc134ff08f276085599313959408ee8c32d9cf35ce71670fff.css"  disabled /><script>
+			
+			(function() {
+				var savedTheme = localStorage.getItem("theme-storage");
+				if (!savedTheme) {
+					var darkModeStyle = document.getElementById("darkModeStyle");
+					if (darkModeStyle) darkModeStyle.disabled = false;
+				} else if (savedTheme === "light") {
+					var darkModeStyle = document.getElementById("darkModeStyle");
+					if (darkModeStyle) darkModeStyle.disabled = true;
+				}
+			})();
+		</script>
 </head>
 <body>
         <div class="content"><header>
@@ -67,11 +79,13 @@
 		</li><li class="post">
 			<a href="../posts/post-4/">Getting Started with Traveling Ultralight</a> <span class="meta">Mar 18, 2020</span>
 		</li><li class="post">
+			<a href="../posts/post-1/">UI5 Search Utility</a> <span class="meta">Apr 18, 2018</span>
+		</li><li class="post">
 			<a href="../posts/post-5/">Typography</a> <span class="meta">Mar 18, 2018</span>
 		</li><li class="post">
 			<a href="../posts/post-3/">How I Learned to Stop Procrastinating, &amp; Love Letting Go</a> <span class="meta">Mar 18, 2018</span>
 		</li><li class="post">
-			<a href="../posts/post-2/">Fearlessness: How to Stop Running from Space</a> <span class="meta">Mar 18, 2018</span>
+			<a href="../posts/post-2/">Fearlessness: How to Stop Running from Spaceeeee</a> <span class="meta">Mar 18, 2018</span>
 		</li></ul>
 <footer>
   <div style="display:flex"><a class="soc" href="https://github.com/yunus-tuzun" rel="me" title="GitHub"><svg class="feather">

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Todo on Yunus Tuzun | Personal Website</title>
+    <link>/tags/todo/</link>
+    <description>Recent content in Todo on Yunus Tuzun | Personal Website</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>© Yunus Tuzun</copyright>
+    <lastBuildDate>Wed, 18 Apr 2018 12:13:30 +0530</lastBuildDate>
+    <atom:link href="/tags/todo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UI5 Search Utility</title>
+      <link>/posts/post-1/</link>
+      <pubDate>Wed, 18 Apr 2018 12:13:30 +0530</pubDate>
+      <guid>/posts/post-1/</guid>
+      <description>&lt;p&gt;I needed a way to locate specific OData service usage within custom UI5 applications to assess the impact of potential changes. While standard SAP reports such as &lt;strong&gt;RS_ABAP_SOURCE_SCAN&lt;/strong&gt; allow for broad ABAP code searches, they do not effectively index UI5 application content.&lt;/p&gt;&#xA;&lt;p&gt;To fill this gap, I created a Fiori-based search utility compatible with EHP8. The tool supports filtered searches by package or text content and outputs a structured list of files and applications where the search term is found&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

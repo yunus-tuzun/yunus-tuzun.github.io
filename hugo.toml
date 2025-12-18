@@ -7,7 +7,7 @@ copyright = "© Yunus Tuzun"
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-
+publishDir = "docs"
 [params]
 favicon = "favicon.png"
 og_image = "og-image.png"

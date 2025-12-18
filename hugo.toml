@@ -8,8 +8,8 @@ pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
 
 [params]
-favicon = "assets/favicon.png"
-og_image = "assets/og-image.png"
+favicon = "static/favicon.png"
+og_image = "static/og-image.png"
 # mode = "auto"
 mode = "toggle"
 useCDN = true

@@ -1,4 +1,5 @@
-baseURL = 'yunus.tuzun.interise.space/'
+baseURL = '/'
+relativeURLs = true
 languageCode = 'en-us'
 title = 'Yunus Tuzun | Personal Website'
 theme="archie" 
@@ -6,11 +7,10 @@ copyright = "© Yunus Tuzun"
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-publishDir = "docs"
 
 [params]
-favicon = "static/favicon.png"
-og_image = "static/og-image.png"
+favicon = "favicon.png"
+og_image = "og-image.png"
 # mode = "auto"
 mode = "toggle"
 useCDN = true

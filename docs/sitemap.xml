@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>yunus.tuzun.interise.space/about/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>yunus.tuzun.interise.space/</loc>
+    <lastmod>2025-04-12T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>yunus.tuzun.interise.space/tags/code/</loc>
     <lastmod>2020-06-23T00:00:00+00:00</lastmod>
   </url><url>
@@ -14,14 +20,8 @@
     <loc>yunus.tuzun.interise.space/tags/</loc>
     <lastmod>2020-06-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>yunus.tuzun.interise.space/</loc>
-    <lastmod>2020-06-23T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>yunus.tuzun.interise.space/posts/post-6/</loc>
     <lastmod>2020-04-15T12:13:36+05:30</lastmod>
-  </url><url>
-    <loc>yunus.tuzun.interise.space/about/</loc>
-    <lastmod>2020-04-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>yunus.tuzun.interise.space/posts/tg-gh/</loc>
     <lastmod>2020-04-01T00:00:00+00:00</lastmod>
@@ -43,6 +43,8 @@
   </url><url>
     <loc>yunus.tuzun.interise.space/tags/space/</loc>
     <lastmod>2018-03-18T12:13:30+05:30</lastmod>
+  </url><url>
+    <loc>yunus.tuzun.interise.space/resume-yunus-tuzun/</loc>
   </url><url>
     <loc>yunus.tuzun.interise.space/categories/</loc>
   </url>

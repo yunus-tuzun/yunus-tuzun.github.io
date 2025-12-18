@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Yunus Tuzun | Personal Site</title>
+    <title>Yunus Tuzun | Personal Website</title>
     <link>yunus.tuzun.interise.space/</link>
-    <description>Recent content on Yunus Tuzun | Personal Site</description>
+    <description>Recent content on Yunus Tuzun | Personal Website</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>© Yunus Tuzun</copyright>
@@ -14,7 +14,7 @@
       <link>yunus.tuzun.interise.space/about/</link>
       <pubDate>Sat, 12 Apr 2025 00:00:00 +0000</pubDate>
       <guid>yunus.tuzun.interise.space/about/</guid>
-      <description>&lt;p&gt;Yunus Tuzun is a Computer Engineer with 13 years of experience delivering enterprise solutions across various industries. He is currently working at Interise Technology, where he leads SAP projects utilizing Fiori and ABAP technologies.&lt;/p&gt;&#xA;&lt;p&gt;Previously, he worked as a SAP Development Expert at MBIS, contributing to over 40 projects and supporting more than 50 clients, including organizations such as Türk Telekom and Beko.&lt;/p&gt;&#xA;&lt;p&gt;His technical experience covers SAP NetWeaver, Fiori, SAPUI5, OData, RAP, CDS, and SAP BTP. His areas of expertise include ERP implementation, legacy system modernization, performance optimization, and developing scalable SAP solutions.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Yunus Tuzun is a Computer Engineer with 13 years of experience delivering enterprise solutions across various industries. He is currently working at Interise Technology, where he leads SAP projects utilizing Fiori and ABAP technologies.&lt;/p&gt;&#xA;&lt;p&gt;Previously, he worked as a SAP Consultant at MBIS, contributing to around 40 projects and supporting more than 50 clients, including organizations such as Türk Telekom and Beko.&lt;/p&gt;&#xA;&lt;p&gt;His technical experience covers SAP NetWeaver, Fiori, SAPUI5, OData, RAP, CDS, Core Data Service, ABAP Managed Database Procedures, Test-Driven ABAP Development, ABAP Development Tool, Business Application Studio, SAP Conversational AI, etc. His areas of expertise include ERP implementation, legacy system modernization, performance optimization, and developing scalable SAP solutions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Syntax Higlighters</title>

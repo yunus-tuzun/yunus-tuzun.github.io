@@ -1,12 +1,11 @@
-baseURL = 'yunus.tuzun.interise.space'
+baseURL = 'yunus.tuzun.interise.space/'
 languageCode = 'en-us'
-title = 'Yunus Tuzun | Personal Site'
+title = 'Yunus Tuzun | Personal Website'
 theme="archie" 
 copyright = "© Yunus Tuzun"
 pygmentsstyle = "monokai"
 pygmentscodefences = true
 pygmentscodefencesguesssyntax = true
-publishDir = "docs"
 
 [params]
 favicon = "assets/favicon.png"
@@ -15,7 +14,7 @@ og_image = "assets/og-image.png"
 mode = "toggle"
 useCDN = true
 subtitle = ""
-description = "Tuzun Yunus | Personal Site"
+description = "Tuzun Yunus | Personal Website"
 
 [[params.social]]
 name = "GitHub"

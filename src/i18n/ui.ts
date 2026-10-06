@@ -38,14 +38,12 @@ export const ui = {
     'home.available': 'Available',
 
     'about.title': 'About',
-    'about.subtitle': 'SAP Development Architect · İstanbul, Türkiye',
     'about.p1':
-      'SAP Development Architect with 15+ years of experience and 60+ projects across telecommunications, energy, finance, manufacturing, and more.',
+      'Works as an SAP Development Architect with 15+ years of experience and 60+ projects across telecommunications, energy, finance, manufacturing, and more.',
     'about.p2':
       'Works across SAP S/4HANA and ECC with ABAP, Fiori, SAPUI5, and SAP BTP, building clean-core extensions with RAP and CAP. Leads technical teams and uses AI-assisted development in daily delivery.',
     'about.p3':
       'Articles on this blog are published in both English and Turkish.',
-    'about.contact': 'Contact',
 
     'blog.title': 'Blog',
     'blog.page': 'Page',
@@ -83,11 +81,8 @@ export const ui = {
 
     'footer.stayUpdated': 'Stay Updated',
     'footer.stayUpdatedSub': 'Get the latest posts delivered to your inbox.',
-    'footer.navigation': 'Navigation',
-    'footer.legal': 'Legal',
     'footer.privacy': 'Privacy Policy',
     'footer.terms': 'Terms of Service',
-    'footer.connect': 'Connect',
     'footer.rights': 'All rights reserved.',
     'footer.theme': 'Theme',
 
@@ -150,14 +145,12 @@ export const ui = {
     'home.available': 'İletişime açık',
 
     'about.title': 'Hakkında',
-    'about.subtitle': 'SAP Development Architect · İstanbul, Türkiye',
     'about.p1':
-      'Telekomünikasyon, enerji, finans, üretim ve daha birçok sektörde 15 yılı aşkın deneyime ve 60’tan fazla projeye sahip SAP Development Architect.',
+      'Telekomünikasyon, enerji, finans, üretim ve daha birçok sektörde 15 yılı aşkın, 60’tan fazla proje deneyimine sahip SAP Development Architect olarak çalışıyor.',
     'about.p2':
       'SAP S/4HANA ve ECC üzerinde ABAP, Fiori, SAPUI5 ve SAP BTP ile çalışıyor; RAP ve CAP ile clean-core uzantılar geliştiriyor. Teknik ekiplere liderlik ediyor ve günlük teslimatlarında yapay zekâ destekli geliştirmeyi kullanıyor.',
     'about.p3':
       'Bu blogdaki yazılar hem Türkçe hem İngilizce yayımlanıyor.',
-    'about.contact': 'İletişim',
 
     'blog.title': 'Blog',
     'blog.page': 'Sayfa',
@@ -195,11 +188,8 @@ export const ui = {
 
     'footer.stayUpdated': 'Haberdar Olun',
     'footer.stayUpdatedSub': 'Yeni yazılar e-posta kutunuza gelsin.',
-    'footer.navigation': 'Gezinme',
-    'footer.legal': 'Yasal',
     'footer.privacy': 'Gizlilik Politikası',
     'footer.terms': 'Kullanım Koşulları',
-    'footer.connect': 'Bağlantılar',
     'footer.rights': 'Tüm hakları saklıdır.',
     'footer.theme': 'Tema',
 

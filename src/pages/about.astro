@@ -2,8 +2,7 @@
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import PageHead from '@/components/PageHead.astro'
 import Layout from '@/layouts/Layout.astro'
-import Link from '@/components/Link.astro'
-import { SITE, SOCIAL_LINKS } from '@/consts'
+import { SITE } from '@/consts'
 import { getLangFromUrl, useTranslations } from '@/i18n/ui'
 
 const lang = getLangFromUrl(Astro.url)
@@ -28,14 +27,7 @@ const personSchema = {
 
   <section class="flex flex-col gap-8">
     <!-- Header -->
-    <div class="flex flex-col gap-4">
-      <div>
-        <h1 class="text-3xl md:text-4xl font-bold">{t('about.title')}</h1>
-        <p class="text-sm text-muted-foreground font-mono mt-1">
-          {t('about.subtitle')}
-        </p>
-      </div>
-    </div>
+    <h1 class="text-3xl md:text-4xl font-bold">{t('about.title')}</h1>
 
     <!-- Main Content -->
     <div class="prose prose-sm dark:prose-invert max-w-none space-y-6">
@@ -50,17 +42,6 @@ const personSchema = {
       <p class="text-muted-foreground leading-relaxed">
         {t('about.p3')}
       </p>
-
-      <h2 class="text-lg font-semibold">{t('about.contact')}</h2>
-      <ul class="text-muted-foreground">
-        {SOCIAL_LINKS.filter((link) => link.label !== 'RSS').map((link) => (
-          <li>
-            <Link href={link.href} underline external>
-              {link.href.replace(/^(mailto:|https:\/\/(www\.)?)/, '').replace(/\/$/, '')}
-            </Link>
-          </li>
-        ))}
-      </ul>
     </div>
   </section>
 </Layout>

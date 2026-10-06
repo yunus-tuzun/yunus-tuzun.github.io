@@ -74,10 +74,7 @@ const websiteSchema = {
   {latestPosts && latestPosts.length > 0 && (
     <section>
       <div class="mb-6 flex items-center justify-between">
-        <div>
-          <h1 class="text-2xl font-semibold mb-2">{t('home.latest')}</h1>
-          <p class="text-sm text-muted-foreground">{t('home.latestSub')}</p>
-        </div>
+        <h1 class="text-2xl font-semibold">{t('home.latest')}</h1>
         <Link 
           href={blogHref} 
           class={buttonVariants({ variant: 'ghost' }) + ' hidden sm:flex items-center gap-1.5'}

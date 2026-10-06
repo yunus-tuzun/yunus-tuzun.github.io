@@ -1,0 +1,15 @@
+---
+import { blogPagePaths } from '@/lib/static-paths'
+import type { PaginateFunction } from 'astro'
+import Page from '../../blog/[...page].astro'
+
+export async function getStaticPaths({
+  paginate,
+}: {
+  paginate: PaginateFunction
+}) {
+  return blogPagePaths(paginate, 'tr')
+}
+---
+
+<Page {...Astro.props} />

@@ -1,0 +1,45 @@
+---
+import BlogCard from '@/components/BlogCard.astro'
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import { getLangFromUrl, localizePath, useTranslations } from '@/i18n/ui'
+import { tagPaths } from '@/lib/static-paths'
+import type { CollectionEntry } from 'astro:content'
+
+export async function getStaticPaths() {
+  return tagPaths('en')
+}
+
+const { tag, posts } = Astro.props as {
+  tag: string
+  posts: CollectionEntry<'blog'>[]
+}
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+---
+
+<Layout class="max-w-3xl">
+  <PageHead
+    slot="head"
+    title={`${t('tags.taggedWith')} "${tag}"`}
+    description={`${t('tags.collection')} ${tag}.`}
+    noindex
+  />
+  <Breadcrumbs
+    items={[
+      { href: localizePath('/tags', lang), label: t('tags.title'), icon: 'lucide:tags' },
+      { label: tag, icon: 'lucide:tag' },
+    ]}
+  />
+
+  <ul class="flex flex-col gap-y-4">
+    {
+      posts.map((post) => (
+        <li>
+          <BlogCard entry={post} />
+        </li>
+      ))
+    }
+  </ul>
+</Layout>

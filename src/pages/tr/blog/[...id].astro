@@ -1,0 +1,10 @@
+---
+import { postPaths } from '@/lib/static-paths'
+import Page from '../../blog/[...id].astro'
+
+export async function getStaticPaths() {
+  return postPaths('tr')
+}
+---
+
+<Page {...Astro.props} />

@@ -1,0 +1,26 @@
+---
+title: 'UI5 Uygulamaları İçin Basit Bir Kod Arama Aracı'
+description: 'Standart ABAP arama araçları UI5 kaynak kodunu tarayamıyor. Bu küçük araç, deploy edilmiş UI5 uygulamalarında metin arıyor ve aranan ifadenin hangi uygulamanın hangi dosyasında geçtiğini listeliyor.'
+date: 2026-02-22
+tags: ['sap', 'ui5', 'fiori', 'abap', 'odata']
+authors: ['yunus-tuzun']
+lang: 'tr'
+translationKey: 'ui5-code-search-tool'
+draft: false
+---
+
+Deploy edilmiş UI5 uygulamaları içerisinde belirli bir OData servisinin veya kod parçasının nerede geçtiğini bulmak bazen uğraştırıcı olabiliyor. Standart ABAP arama araçları (`RS_ABAP_SOURCE_SCAN` vb.) UI5 kaynak kodlarının içeriğini tarayamadığı için bu konuda yetersiz kalıyor.
+
+Bu eksikliği gidermek adına, sistemdeki UI5 uygulamaları içerisinde metin bazlı arama yapabilen basit bir araç hazırlandı.
+
+**Özetle Araç Ne Yapıyor?**
+
+- **Uyumluluk:** EHP8 ve Fiori arayüzü ile çalışıyor.
+- **İşlev:** Paket bazında veya tüm uygulamalarda belirli bir metni (örneğin bir OData servisi ismini) arıyor.
+- **Sonuç:** Aranan ifadenin hangi uygulamanın hangi dosyasında geçtiğini listeliyor.
+
+![Aranan ifadeyi içeren UI5 uygulamalarını ve dosyalarını listeleyen arama sonuçları](./arama-sonuclari.png)
+
+Benzer bir ihtiyaç duyanlar olursa diye projeyi paylaşıyorum. Kurulum sonrası ortamınıza göre ufak OData ayarları yapmanız gerekebilir. Hata görürseniz veya geliştirmek isterseniz GitHub üzerinden yazabilirsiniz.
+
+**GitHub Linki:** [github.com/yunus-tuzun](https://github.com/yunus-tuzun)

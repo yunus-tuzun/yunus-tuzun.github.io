@@ -1,0 +1,167 @@
+---
+import BlogCard from '@/components/BlogCard.astro'
+import Link from '@/components/Link.astro'
+import PageHead from '@/components/PageHead.astro'
+import { buttonVariants } from '@/components/ui/button'
+import Layout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+import { getRecentPosts } from '@/lib/data-utils'
+import { SOCIAL_LINKS, ICON_MAP, SITE } from '@/consts'
+import { getLangFromUrl, languages, localizePath, useTranslations } from '@/i18n/ui'
+
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const description = t('site.description')
+const blogHref = localizePath('/blog', lang)
+const contactLink =
+  SOCIAL_LINKS.find((link) => link.label === 'Email') ??
+  SOCIAL_LINKS.find((link) => link.label === 'GitHub')
+
+// Error handling for fetching recent posts
+let latestPosts: Awaited<ReturnType<typeof getRecentPosts>> = []
+try {
+  latestPosts = await getRecentPosts(2, lang)
+} catch (error) {
+  console.error('Error fetching recent posts:', error)
+}
+
+// Person Schema for homepage SEO
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": SITE.title,
+  "url": SITE.href,
+  "description": description
+}
+
+// Organization Schema
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": SITE.title,
+  "url": SITE.href,
+  "description": description
+}
+
+// Website Schema
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": SITE.title,
+  "url": SITE.href,
+  "description": description,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": `${SITE.href}/blog?q={search_term_string}`
+    },
+    "query-input": "required name=search_term_string"
+  },
+  "inLanguage": languages[lang].locale
+}
+
+---
+<Layout class="max-w-3xl">
+  <PageHead slot="head" title={SITE.title} fullTitle={true} />
+  
+  <!-- Schema Markup for SEO -->
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+  
+  <!-- Latest from the blog -->
+  {latestPosts && latestPosts.length > 0 && (
+    <section>
+      <div class="mb-6 flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-semibold mb-2">{t('home.latest')}</h1>
+          <p class="text-sm text-muted-foreground">{t('home.latestSub')}</p>
+        </div>
+        <Link 
+          href={blogHref} 
+          class={buttonVariants({ variant: 'ghost' }) + ' hidden sm:flex items-center gap-1.5'}
+        >
+          {t('home.viewAll')}
+          <Icon name="lucide:arrow-right" class="size-4" />
+        </Link>
+      </div>
+      
+      <div class="space-y-2">
+        {latestPosts.map((post) => (
+          <article>
+            <BlogCard entry={post} />
+          </article>
+        ))}
+      </div>
+      
+      <article class="mt-2 sm:hidden">
+        <Link
+          href={blogHref}
+          aria-label={t('home.viewAllPostsAria')}
+          class="group block py-3 px-2 rounded-md border border-border/50 bg-muted/20 hover:bg-muted/40 hover:border-primary/30 transition-all duration-200"
+        >
+          <div class="flex items-center gap-3">
+            <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-colors" aria-hidden="true">
+              <Icon name="lucide:library" class="size-5 text-primary" />
+            </div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2">
+                <span class="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                  {t('home.viewAllPosts')}
+                </span>
+                <Icon name="lucide:arrow-right" class="size-4 text-primary/70 group-hover:text-primary group-hover:translate-x-0.5 transition-all shrink-0" aria-hidden="true" />
+              </div>
+              <p class="text-xs text-muted-foreground mt-0.5">
+                {t('home.exploreAll')}
+              </p>
+            </div>
+          </div>
+        </Link>
+      </article>
+    </section>
+  )}
+
+  <!-- CTA Section -->
+  <section class="mt-12 sm:mt-24">
+    <div class="max-w-2xl mx-auto">
+      <div class="mb-12 relative">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-border"></div>
+        </div>
+        <div class="relative flex justify-center">
+          <div class="flex items-center gap-2.5 px-4 py-2 rounded-full bg-background border border-border shadow-sm">
+            <span class="relative flex h-1.5 w-1.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-primary"></span>
+            </span>
+            <span class="text-xs font-medium text-muted-foreground uppercase tracking-wider">{t('home.available')}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center space-y-6">
+        <div class="space-y-2">
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-foreground leading-tight">
+            {t('home.connect')}
+          </h2>
+        </div>
+        <p class="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-xl mx-auto">
+          {t('home.connectSub')}
+        </p>
+        <div class="pt-4">
+          {contactLink && (
+            <Link 
+              href={contactLink.href} 
+              class="group inline-flex items-center gap-2.5 px-7 py-3.5 rounded-lg bg-foreground text-background text-base font-medium hover:bg-foreground/90 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            >
+              <Icon name={ICON_MAP[contactLink.label] ?? 'lucide:mail'} class="size-4" />
+              <span>{t('home.getInTouch')}</span>
+              <Icon name="lucide:arrow-right" class="size-4 transition-transform group-hover:translate-x-1" />
+            </Link>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

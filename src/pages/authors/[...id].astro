@@ -1,0 +1,60 @@
+---
+import AuthorCard from '@/components/AuthorCard.astro'
+import BlogCard from '@/components/BlogCard.astro'
+import Breadcrumbs from '@/components/Breadcrumbs.astro'
+import PageHead from '@/components/PageHead.astro'
+import Layout from '@/layouts/Layout.astro'
+import { getPostsByAuthor } from '@/lib/data-utils'
+import { getLangFromUrl, localizePath, useTranslations } from '@/i18n/ui'
+import { authorPaths } from '@/lib/static-paths'
+import type { CollectionEntry } from 'astro:content'
+
+export async function getStaticPaths() {
+  return authorPaths()
+}
+
+const { author } = Astro.props as { author: CollectionEntry<'authors'> }
+const lang = getLangFromUrl(Astro.url)
+const t = useTranslations(lang)
+const bio = (lang === 'tr' && author.data.bioTr) || author.data.bio
+const authorPosts = await getPostsByAuthor(author.id, lang)
+---
+
+<Layout class="max-w-3xl">
+  <PageHead
+    slot="head"
+    title={`${author.data.name} (${t('authors.author')})`}
+    description={bio || `${t('authors.profileOf')} ${author.data.name}.`}
+    noindex
+  />
+  <Breadcrumbs
+    items={[
+      { href: localizePath('/authors', lang), label: t('authors.title'), icon: 'lucide:users' },
+      { label: author.data.name, icon: 'lucide:user' },
+    ]}
+  />
+
+  <section>
+    <AuthorCard author={author} />
+  </section>
+  <section class="flex flex-col gap-y-4">
+    <h2 class="text-2xl font-medium">{t('authors.postsBy')} {author.data.name}</h2>
+    {
+      authorPosts.length > 0 ? (
+        <ul class="flex flex-col gap-4">
+          {authorPosts
+            .filter((post) => !post.data.draft)
+            .map((post) => (
+              <li>
+                <BlogCard entry={post} />
+              </li>
+            ))}
+        </ul>
+      ) : (
+        <p class="text-muted-foreground">
+          {t('authors.noPosts')}
+        </p>
+      )
+    }
+  </section>
+</Layout>

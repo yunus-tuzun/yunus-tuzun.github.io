@@ -1,0 +1,10 @@
+---
+import { authorPaths } from '@/lib/static-paths'
+import Page from '../../authors/[...id].astro'
+
+export async function getStaticPaths() {
+  return authorPaths()
+}
+---
+
+<Page {...Astro.props} />

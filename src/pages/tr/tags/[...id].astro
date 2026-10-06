@@ -1,0 +1,10 @@
+---
+import { tagPaths } from '@/lib/static-paths'
+import Page from '../../tags/[...id].astro'
+
+export async function getStaticPaths() {
+  return tagPaths('tr')
+}
+---
+
+<Page {...Astro.props} />

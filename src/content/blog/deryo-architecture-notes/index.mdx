@@ -1,0 +1,33 @@
+---
+title: 'Architecture Notes from Deryo: a Metadata-Driven App Platform on PostgreSQL'
+description: 'How Deryo, a self-hosted Airtable/Coda alternative, isolates tenants, keeps definitions as data, and ships one version to every app without breaking rollback.'
+date: 2026-10-22
+tags: ['architecture', 'postgresql', 'multitenancy', 'fastapi', 'react']
+authors: ['yunus-tuzun']
+lang: 'en'
+translationKey: 'deryo-architecture-notes'
+draft: false
+---
+
+Deryo is a self-hosted app platform in the spirit of Airtable or Coda, built on PostgreSQL, FastAPI and React. Users define tables, views, relations and automations; the platform turns those definitions into a working app.
+
+## Definitions are data
+
+Column types, views and actions are stored as **metadata**, and the DDL is generated from them. Backend and frontend share the same four planes (`core · data · view · action`), so a feature can be traced from the grid to the SQL with the same words.
+
+## One database per customer
+
+One installation hosts many apps. Each request is resolved to its app from the Host header, and **each app has its own database**. A schema separates scopes inside one trust boundary; a database separates trust boundaries.
+
+![Requests are routed by host to a tenant resolver, which looks up the control plane and binds each app's own database, with workspaces as schemas inside it](./tenancy.svg)
+## One version, two runtimes
+
+All production apps run one tagged version. Dev syncs from the local disk; prod only checks out tags from GitHub. Code never goes from dev to prod directly, because the dev tree contains uncommitted work.
+
+![Local disk syncs to the dev runtime and pushes tags to GitHub; the prod runtime checks out tags only and never copies from dev](./release.svg)
+
+## Migrations must not break the previous release
+
+Rollback restores code, not schema, so new schema always runs with old code for a while. Changes go **add → read both → drop**, across releases, and a test scans migration files for renames and dropped columns.
+
+Most of these choices are about **where a boundary sits**. Once it's in the right place, a lot else gets simpler.

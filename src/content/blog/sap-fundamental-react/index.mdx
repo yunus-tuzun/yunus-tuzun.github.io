@@ -1,0 +1,80 @@
+---
+title: 'Fundamentals for SAP Fiori Applications: Intro'
+description: 'SAP Fundamental lets Fiori-style apps be built with React, Vue or Angular. A short walkthrough with fundamental-react.'
+date: 2019-07-08
+tags: ['sap', 'fiori', 'react', 'javascript']
+authors: ['yunus-tuzun']
+lang: 'en'
+translationKey: 'sap-fundamental-react'
+draft: false
+---
+
+> Originally published on [SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/fundamentals-for-sap-fiori-applications-intro/ba-p/13393138) in July 2019. Library versions and APIs have changed since then.
+
+SAP Fundamental makes it possible to build Fiori applications with the UI framework of choice: React, Vue or Angular. Apps are built with standard web technology and open source npm libraries, which gives a more flexible structure and access to the wider JavaScript ecosystem.
+
+Fundamental does not replace UI5. Development on UI5 continues; Fundamental simply means Fiori developers are not tied to a single technology.
+
+- Project page: [sap.github.io/fundamental](https://sap.github.io/fundamental/index.html)
+- React: [sap.github.io/fundamental-react](https://sap.github.io/fundamental-react)
+- Angular: [sap.github.io/fundamental-ngx](https://sap.github.io/fundamental-ngx)
+- Vue: [sap.github.io/fundamental-vue](https://sap.github.io/fundamental-vue)
+
+## A simple React app
+
+A React project needs a package manager. npm is the most common (Yarn works too) and comes with [Node.js](https://nodejs.org/en/), the runtime that executes JavaScript outside the browser.
+
+After installing Node.js, create the app from a terminal (for example in Visual Studio Code) and move into its folder:
+
+```bash
+npx create-react-app <project-name>
+cd <project-name>
+```
+
+Install the Fundamental styles and React components:
+
+```bash
+npm install fundamental-styles fundamental-react
+```
+
+The project now has three folders:
+
+- `node_modules`: the library files
+- `public`: files open to external access
+- `src`: the source files
+
+## A panel with a title, text and a button
+
+In `App.js`, import the components at the top of the file:
+
+```jsx
+import { Panel } from 'fundamental-react/Panel';
+import { Button } from 'fundamental-react/Button';
+```
+
+Remove everything inside the `App` div and add:
+
+```jsx
+<Panel>
+  <Panel.Header>
+    <Panel.Head description="New Fundamental App" title="Fiori 3.0 with React" />
+    <Panel.Actions>
+      <Button compact glyph="add">
+        Add Item
+      </Button>
+    </Panel.Actions>
+  </Panel.Header>
+
+  <Panel.Body>Open-source, New UI</Panel.Body>
+</Panel>
+```
+
+Start the app with `npm start`.
+
+The sample code is on [GitHub](https://github.com/yunustuzun/sap-fundamental). To learn more or contribute to the React library, see [sap/fundamental-react](https://github.com/sap/fundamental-react).
+
+## Resources
+
+- [fiori-fundamentals on npm](https://www.npmjs.com/package/fiori-fundamentals)
+- [SAP Fundamental](https://sap.github.io/fundamental/)
+- [Democratizing SAP Fiori with Fiori Fundamentals](https://experience.sap.com/archived/democratizing-sap-fiori-with-fiori-fundamentals/)

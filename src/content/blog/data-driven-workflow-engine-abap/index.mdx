@@ -1,6 +1,6 @@
 ---
 title: 'Notes on Building a Data-Driven Workflow Engine in ABAP'
-description: 'Lessons from an ethics and discipline case management project: one state machine, transitions as table rows, and no step-specific code.'
+description: 'One state machine, transitions as table rows, and no step-specific code: notes from a multi-step approval workflow on SAP.'
 date: 2026-10-22
 tags: ['sap', 'abap', 'architecture', 'workflow', 'clean-architecture']
 authors: ['yunus-tuzun']
@@ -9,11 +9,11 @@ translationKey: 'data-driven-workflow-engine-abap'
 draft: false
 ---
 
-Notes from a case management system on SAP: a report comes in, gets reviewed, goes to a committee, is decided and closed. Two process families share the same backbone.
+Notes from a multi-step approval workflow on SAP: a request is created, passes through several approval steps and is closed. Two different processes share the same backbone.
 
 ## Transitions are rows, not code
 
-The core is a **data-driven state machine**. The engine looks up a row by `current step + action + decision`; the row says the next step, the status and who is responsible. Conditions like site or scope are a **variant key** on the row, not extra columns.
+The core is a **data-driven state machine**. The engine looks up a row by `current step + action + decision`; the row says the next step, the status and who is responsible. Conditions like region or request type are a **variant key** on the row, not extra columns.
 
 ![The engine looks up a flow rule by step, action and decision, and the row returns the next step, status and responsible party](./flow-engine.svg)
 
@@ -25,7 +25,7 @@ Rules that don't fit the model go into a **special case registry** instead of sc
 
 ## Two statuses, never mixed
 
-The **internal status** is a small lifecycle set (created, waiting, rejected, done). The **external status** is the text each role sees. "Suspended" needed no new state, just a waiting step and a mapped text.
+The **internal status** is a small lifecycle set (created, waiting, rejected, done). The **external status** is the text each role sees. "On hold" needed no new state, just a waiting step and a mapped text.
 
 ## The rule behind it all
 

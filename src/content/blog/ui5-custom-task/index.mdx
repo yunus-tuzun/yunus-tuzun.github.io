@@ -1,0 +1,79 @@
+---
+title: 'UI5 Custom Task Creation and Usage'
+description: 'A UI5 Tooling custom task that removes unused i18n texts during the build.'
+date: 2021-05-16
+tags: ['sap', 'ui5', 'fiori', 'javascript', 'ui5-tooling']
+authors: ['yunus-tuzun']
+lang: 'en'
+translationKey: 'ui5-custom-task'
+draft: false
+---
+
+> Originally published on [SAP Community](https://community.sap.com/t5/technology-blog-posts-by-members/ui5-custom-task-creation-and-usage/ba-p/13498929) in May 2021.
+
+In [UI5 Tooling](https://sap.github.io/ui5-tooling/), a custom task adds extra operations to the build. This demo removes i18n texts that are not used in the project, which saves time when project files are combined from different workspaces and many i18n texts become redundant.
+
+## Task configuration
+
+In `ui5.yaml`, the custom task is registered together with the standard task it runs relative to. Here it runs before `replaceCopyright`:
+
+```yaml
+builder:
+  customTasks:
+    - name: cleanUnusedi18nKeys
+      beforeTask: replaceCopyright
+---
+# Task extension as part of your project
+specVersion: "2.1"
+kind: extension
+type: task
+metadata:
+  name: cleanUnusedi18nKeys
+task:
+  path: tasks/cleanUnusedi18nKeys.js
+```
+
+## Task file
+
+The task file exports an async function. The `workspace` object gives access to the project files:
+
+```js
+module.exports = async function ({ workspace, dependencies, taskUtil, options }) {
+  // ...
+};
+```
+
+## Logic
+
+Each i18n key is searched for in the project files (controllers, fragments, views and the manifest). Keys that are not found are left out of the new i18n file. Every async call is awaited so the steps run in order.
+
+```js
+const textResources = await workspace.byGlob("**/*{view.xml,fragment.xml,controller.js,manifest.json}");
+const i18nFiles = await workspace.byGlob("**/*.properties");
+// ...
+await Promise.all(i18nFiles.map(async (i18nFile) => {
+  // ...
+  lines = lines.filter((l) => l.found === true);
+
+  for (let i = 0; i < lines.length; i++) {
+    line = lines[i];
+    i18nString += line.key + " = " + line.value + "\n";
+  }
+  i18nString.substring(0, i18nString.length - 2);
+
+  await i18nFile.setString(i18nString);
+
+  await workspace.write(i18nFile).then(() => console.log('DONE'));
+  // ...
+}));
+```
+
+## Result
+
+After `ui5 build`, the i18n keys that are not used anywhere in the workspace are gone from the build output.
+
+## Final words
+
+The full code is on [GitHub](https://github.com/Yunustuzun/UI5-i18n-cleaner) as a reference for building a custom task, and the [API reference](https://sap.github.io/ui5-tooling/api/index.html) covers further requirements. Libraries like Babel or Grunt.js can also be used inside a task.
+
+Custom tasks can format, transpile or lint files before or during the build. Thanks to contributors in the [UI5 Ecosystem](https://github.com/ui5-community/ui5-ecosystem-showcase), many ready-made tasks already cover common needs.

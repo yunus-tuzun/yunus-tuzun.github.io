@@ -13,7 +13,7 @@
   <rect x="40" y="158" width="170" height="40" rx="8" fill="#e0e7ff" stroke="#6366f1"/>
   <text x="125" y="183" font-size="14" text-anchor="middle" fill="#1e1b4b">Decision</text>
   <rect x="40" y="208" width="170" height="40" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="4 3"/>
-  <text x="125" y="233" font-size="14" text-anchor="middle" fill="#334155">Variant (site, scope…)</text>
+  <text x="125" y="233" font-size="14" text-anchor="middle" fill="#334155">Variant (region, type…)</text>
 
   <path d="M218 153 H282" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
 
@@ -23,14 +23,14 @@
   <rect x="290" y="58" width="200" height="34" rx="8" fill="#334155"/>
   <text x="390" y="80" font-size="13" text-anchor="middle" fill="#f8fafc">one row = one rule</text>
   <g font-size="12" fill="#475569" font-family="ui-monospace, monospace">
-    <text x="306" y="116">review · send · ok</text>
+    <text x="306" y="116">draft · submit · ok</text>
     <line x1="300" x2="480" y1="126" y2="126" stroke="#e2e8f0"/>
-    <text x="306" y="146">review · send · reject</text>
+    <text x="306" y="146">draft · submit · reject</text>
     <line x1="300" x2="480" y1="156" y2="156" stroke="#e2e8f0"/>
     <rect x="296" y="164" width="188" height="28" rx="4" fill="#dcfce7"/>
-    <text x="306" y="183" fill="#14532d">board · decide · ok</text>
+    <text x="306" y="183" fill="#14532d">approve · decide · ok</text>
     <line x1="300" x2="480" y1="200" y2="200" stroke="#e2e8f0"/>
-    <text x="306" y="222">board · decide · appeal</text>
+    <text x="306" y="222">approve · decide · back</text>
   </g>
 
   <path d="M498 153 H562" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>

@@ -10,12 +10,7 @@ import TOCSidebar from '@/components/TOCSidebar.astro'
 import { badgeVariants } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Layout from '@/layouts/Layout.astro'
-import {
-  getLangFromUrl,
-  localizePath,
-  otherLang,
-  useTranslations,
-} from '@/i18n/ui'
+import { getLangFromUrl, localizePath, useTranslations } from '@/i18n/ui'
 import { postPaths } from '@/lib/static-paths'
 import {
   getAdjacentPosts,
@@ -25,7 +20,6 @@ import {
   getPostReadingTime,
   getSubpostCount,
   getTOCSections,
-  getTranslation,
   hasSubposts,
   isSubpost,
   parseAuthors,
@@ -44,11 +38,6 @@ const currentPostId = Astro.params.id
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const postHref = (id: string) => localizePath(`/blog/${id}`, lang)
-
-const translation = await getTranslation(post, otherLang(lang))
-const translationHref = translation
-  ? localizePath(`/blog/${translation.id}`, translation.data.lang)
-  : null
 
 // Error handling for content rendering
 let Content: Awaited<ReturnType<typeof render>>['Content']
@@ -102,9 +91,6 @@ try {
 
 <Layout
   hideFloatingSidebar={hasChildPosts || isCurrentSubpost}
-  alternates={translationHref
-    ? { [lang]: postHref(currentPostId), [otherLang(lang)]: translationHref }
-    : { [otherLang(lang)]: localizePath('/blog', otherLang(lang)) }}
 >
   <PostHead slot="head" post={post} />
   {
@@ -266,22 +252,6 @@ try {
               })
           }
         </div>
-        {
-          translationHref && translation && (
-            <div class="mt-4 flex justify-center">
-              <a
-                href={translationHref}
-                hreflang={translation.data.lang}
-                lang={translation.data.lang}
-                class="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-sm underline decoration-muted-foreground underline-offset-[3px] transition-colors"
-                data-astro-reload
-              >
-                <Icon name="lucide:languages" class="size-4" aria-hidden="true" />
-                {t('post.readIn')}
-              </a>
-            </div>
-          )
-        }
       </div>
 
       <PostNavigation

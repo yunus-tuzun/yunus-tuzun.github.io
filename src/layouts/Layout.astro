@@ -6,37 +6,17 @@ import FloatingSidebar from '@/components/FloatingSidebar.astro'
 import Footer from '@/components/Footer.astro'
 import Head from '@/components/Head.astro'
 import Header from '@/components/Header.astro'
-import {
-  getLangFromUrl,
-  languages,
-  langs,
-  localizePath,
-  otherLang,
-  stripLangPrefix,
-  useTranslations,
-  type Lang,
-} from '@/i18n/ui'
+import { getLangFromUrl, languages, useTranslations } from '@/i18n/ui'
 import { cn } from '@/lib/utils'
 
 interface Props {
   class?: string
   hideFloatingSidebar?: boolean
-  // Hrefs of this page per language; defaults to the same path in each language
-  alternates?: Partial<Record<Lang, string>>
 }
 
-const {
-  class: className,
-  hideFloatingSidebar = false,
-  alternates: alternatesProp,
-} = Astro.props
+const { class: className, hideFloatingSidebar = false } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-
-const neutralPath = stripLangPrefix(Astro.url.pathname)
-const alternates = Object.fromEntries(
-  langs.map((l) => [l, alternatesProp?.[l] ?? localizePath(neutralPath, l)]),
-) as Record<Lang, string>
 ---
 
 <!doctype html>
@@ -45,10 +25,6 @@ const alternates = Object.fromEntries(
   lang={languages[lang].locale}
 >
   <Head>
-    {langs.map((l) => (
-      <link rel="alternate" hreflang={l} href={new URL(alternates[l], Astro.site).href} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={new URL(alternates.en, Astro.site).href} />
     <slot name="head" />
   </Head>
   <body class="flex h-fit min-h-screen flex-col gap-y-6 font-sans" transition:persist>
@@ -116,7 +92,7 @@ const alternates = Object.fromEntries(
     <header
       class="bg-background/50 sticky top-0 z-50 backdrop-blur-sm xl:backdrop-blur-none xl:bg-transparent divide-y divide-border xl:divide-none"
     >
-      <Header alternateHref={alternates[otherLang(lang)]} />
+      <Header />
       <slot name="subposts-navigation" />
       <slot name="table-of-contents" />
     </header>

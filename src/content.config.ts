@@ -13,9 +13,7 @@ const blog = defineCollection({
       tags: z.array(z.string()).optional(),
       authors: z.array(z.string()).optional(),
       draft: z.boolean().optional(),
-      lang: z.enum(['en', 'tr']).default('en'),
-      // Posts sharing a translationKey are translations of each other
-      translationKey: z.string().optional(),
+      lang: z.enum(['en']).default('en'),
     }),
 })
 
@@ -26,7 +24,6 @@ const authors = defineCollection({
     pronouns: z.string().optional(),
     avatar: z.string().url().or(z.string().startsWith('/')),
     bio: z.string().optional(),
-    bioTr: z.string().optional(),
     mail: z.string().email().optional(),
     website: z.string().url().optional(),
     twitter: z.string().url().optional(),

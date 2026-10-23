@@ -1,6 +1,5 @@
 export const languages = {
   en: { label: 'English', short: 'EN', locale: 'en-US', ogLocale: 'en_US' },
-  tr: { label: 'Türkçe', short: 'TR', locale: 'tr-TR', ogLocale: 'tr_TR' },
 } as const
 
 export type Lang = keyof typeof languages
@@ -19,8 +18,6 @@ export const ui = {
     'nav.tags': 'Tags',
     'nav.authors': 'Authors',
     'nav.menu': 'Toggle menu',
-    'lang.switch': 'Türkçe oku',
-    'lang.switchLabel': 'Switch language',
     'skip.main': 'Skip to main content',
     'theme.toggle': 'Toggle theme',
 
@@ -51,7 +48,6 @@ export const ui = {
     'post.total': 'total',
     'post.subposts': 'subnotes',
     'post.subpost': 'subnote',
-    'post.readIn': 'Bu notu Türkçe oku',
     'post.previous': 'Previous Note',
     'post.next': 'Next Note',
     'post.oldest': "You're at the oldest note!",
@@ -117,113 +113,6 @@ export const ui = {
     'search.loadMore': 'Load more',
     'search.remaining': 'remaining',
   },
-  tr: {
-    'site.description':
-      'SAP, ABAP ve UI5 geliştirme üzerine notlar — küçük araçlar ve pratik çözümler.',
-    'nav.home': 'Ana Sayfa',
-    'nav.blog': 'Notlar',
-    'nav.about': 'Hakkında',
-    'nav.tags': 'Etiketler',
-    'nav.authors': 'Yazarlar',
-    'nav.menu': 'Menüyü aç/kapat',
-    'lang.switch': 'Read in English',
-    'lang.switchLabel': 'Dili değiştir',
-    'skip.main': 'Ana içeriğe geç',
-    'theme.toggle': 'Temayı değiştir',
-
-    'home.welcome': 'Merhaba, ben',
-    'home.readBlog': 'Notları oku',
-    'home.aboutMe': 'Hakkımda',
-    'home.latest': 'Güncel notlar',
-    'home.viewAll': 'Tümünü gör',
-    'home.viewAllPosts': 'Tüm notları gör',
-    'home.viewAllPostsAria': 'Tüm notları gör',
-    'home.exploreAll': 'Tüm notlara ve rehberlere göz atın',
-    'home.connect': 'İletişime geçelim',
-    'home.connectSub': 'Sorunuz mu var ya da birlikte çalışmak mı istiyorsunuz? Yazmaktan çekinmeyin!',
-    'home.getInTouch': 'İletişime geç',
-    'home.available': 'İletişime açık',
-
-    'about.title': 'Hakkında',
-    'about.p1':
-      'Telekomünikasyon, enerji, finans, üretim ve daha birçok sektörde 15 yılı aşkın, 60’tan fazla proje deneyimine sahip SAP Development Architect olarak çalışıyor.',
-    'about.p2':
-      'SAP S/4HANA ve ECC üzerinde ABAP, Fiori, SAPUI5 ve SAP BTP ile çalışıyor; RAP ve CAP ile clean-core uzantılar geliştiriyor. Teknik ekiplere liderlik ediyor ve günlük teslimatlarında yapay zekâ destekli geliştirmeyi kullanıyor.',
-    'about.p3':
-      'Buradaki notlar hem Türkçe hem İngilizce yayımlanıyor.',
-
-    'blog.title': 'Notlar',
-    'blog.page': 'Sayfa',
-    'blog.noPosts': 'Henüz not yok.',
-    'post.total': 'toplam',
-    'post.subposts': 'alt not',
-    'post.subpost': 'alt not',
-    'post.readIn': 'Read this note in English',
-    'post.previous': 'Önceki Not',
-    'post.next': 'Sonraki Not',
-    'post.oldest': 'En eski nottasınız!',
-    'post.newest': 'En yeni nottasınız!',
-    'post.previousSub': 'Önceki Alt Not',
-    'post.nextSub': 'Sonraki Alt Not',
-    'post.noOlderSub': 'Daha eski alt not yok',
-    'post.noNewerSub': 'Daha yeni alt not yok',
-    'post.parent': 'Ana Not',
-    'post.noParent': 'Ana not yok',
-    'post.scrollTop': 'Başa dön',
-    'toc.title': 'İçindekiler',
-    'toc.overview': 'Genel Bakış',
-    'readingTime': 'dk okuma',
-
-    'tags.title': 'Etiketler',
-    'tags.taggedWith': 'Etiketli notlar:',
-    'tags.collection': 'Şu etiketle işaretlenmiş notlar:',
-
-    'authors.title': 'Yazarlar',
-    'authors.none': 'Yazar bulunamadı.',
-    'authors.author': 'Yazar',
-    'authors.profileOf': 'Yazar profili:',
-    'authors.postsBy': 'Notları:',
-    'authors.noPosts': 'Bu yazarın henüz notu yok.',
-    'authors.avatarOf': 'Profil fotoğrafı:',
-
-    'footer.stayUpdated': 'Haberdar Olun',
-    'footer.stayUpdatedSub': 'Yeni notlar e-posta kutunuza gelsin.',
-    'footer.privacy': 'Gizlilik Politikası',
-    'footer.terms': 'Kullanım Koşulları',
-    'footer.rights': 'Tüm hakları saklıdır.',
-    'footer.theme': 'Tema',
-
-    'pagination.previous': 'Önceki',
-    'pagination.next': 'Sonraki',
-    'pagination.previousAria': 'Önceki sayfaya git',
-    'pagination.nextAria': 'Sonraki sayfaya git',
-    'pagination.more': 'Diğer sayfalar',
-
-    'search.title': 'Ara',
-    'search.shortcut': 'Ara (⌘K)',
-    'search.aria': 'Notlarda ara',
-    'search.description': 'Notlarda başlık, açıklama, etiket veya içeriğe göre arayın',
-    'search.placeholder': 'Notlarda ara...',
-    'search.searching': 'Aranıyor...',
-    'search.resultOne': 'sonuç bulundu',
-    'search.resultMany': 'sonuç bulundu',
-    'search.noResults': 'Sonuç bulunamadı',
-    'search.noResultsFor': 'Şunun için sonuç bulunamadı:',
-    'search.selected': 'Seçili',
-    'search.close': 'Aramayı kapat',
-    'search.recentPosts': 'Son Notlar',
-    'search.recentSearches': 'Son Aramalar',
-    'search.hint': 'Başlık, açıklama, etiket veya içeriğe göre arayın',
-    'search.results': 'Arama sonuçları',
-    'search.goTo': 'Git:',
-    'search.loadingIndex': 'Arama dizini yükleniyor...',
-    'search.startTyping': 'Aramak için yazmaya başlayın...',
-    'search.tryDifferent': 'Farklı anahtar kelimeler deneyin veya yazımı kontrol edin',
-    'search.loadError': 'Arama dizini yüklenemedi. Lütfen daha sonra tekrar deneyin.',
-    'search.searchError': 'Arama sırasında bir hata oluştu. Lütfen tekrar deneyin.',
-    'search.loadMore': 'Daha fazla yükle',
-    'search.remaining': 'kaldı',
-  },
 } as const
 
 export type UIKey = keyof (typeof ui)[typeof defaultLang]
@@ -243,22 +132,9 @@ export function getLangFromUrl(url: URL): Lang {
   return isLang(first) ? first : defaultLang
 }
 
-/** Strip the language prefix: `/tr/blog` → `/blog`. */
-export function stripLangPrefix(pathname: string): string {
-  const [, first, ...rest] = pathname.split('/')
-  if (isLang(first) && first !== defaultLang) {
-    return '/' + rest.join('/')
-  }
-  return pathname
-}
-
-/** Prefix a site-relative path for the given language: `/blog` → `/tr/blog`. */
+/** Prefix a site-relative path for a non-default language. */
 export function localizePath(path: string, lang: Lang): string {
   if (lang === defaultLang || /^(https?:|mailto:|#)/.test(path)) return path
   if (path === '/' || path === '') return `/${lang}`
   return `/${lang}${path.startsWith('/') ? path : `/${path}`}`
-}
-
-export function otherLang(lang: Lang): Lang {
-  return lang === 'en' ? 'tr' : 'en'
 }

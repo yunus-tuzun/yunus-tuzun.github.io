@@ -311,16 +311,3 @@ export async function getTOCSections(postId: string): Promise<TOCSection[]> {
   return sections
 }
 
-/** The same post in another language, matched by translationKey. */
-export async function getTranslation(
-  post: CollectionEntry<'blog'>,
-  lang: Lang,
-): Promise<CollectionEntry<'blog'> | null> {
-  const key = post.data.translationKey
-  if (!key) return null
-  const posts = await getAllPostsAndSubposts()
-  return (
-    posts.find((p) => p.data.translationKey === key && p.data.lang === lang) ??
-    null
-  )
-}

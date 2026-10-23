@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 const { author } = Astro.props as { author: CollectionEntry<'authors'> }
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const bio = (lang === 'tr' && author.data.bioTr) || author.data.bio
+const bio = author.data.bio
 const authorPosts = await getPostsByAuthor(author.id, lang)
 ---
 

@@ -15,7 +15,7 @@ const { author } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 const { name, avatar, pronouns } = author.data
-const bio = (lang === 'tr' && author.data.bioTr) || author.data.bio
+const bio = author.data.bio
 const authorHref = localizePath(`/authors/${author.id}`, lang)
 const currentPath = Astro.url.pathname.replace(/\/$/, '')
 const isAuthorPage = currentPath === authorHref

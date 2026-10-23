@@ -20,13 +20,6 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   site: 'https://tuzun.space',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'tr'],
-    routing: {
-      prefixDefaultLocale: false,
-    },
-  },
   // Static output - API routes are handled by Cloudflare Pages Functions in /functions folder
   integrations: [
     expressiveCode({
@@ -74,12 +67,7 @@ export default defineConfig({
     }),
     mdx(),
     react(),
-    sitemap({
-      i18n: {
-        defaultLocale: 'en',
-        locales: { en: 'en-US', tr: 'tr-TR' },
-      },
-    }),
+    sitemap(),
     icon(),
   ],
   vite: {

@@ -37,7 +37,7 @@ export const BREVO = {
 // Newsletter needs the Cloudflare Pages Function in /functions, which GitHub Pages cannot run
 export const NEWSLETTER_ENABLED = false
 
-// Paths are language-neutral; they get the /tr prefix via localizePath()
+// Paths are passed through localizePath()
 export const NAV_LINKS: NavLink[] = [
   {
     href: '/blog',

@@ -4,24 +4,11 @@ import ThemeToggle from '@/components/ThemeToggle.astro'
 import MobileMenu from '@/components/ui/mobile-menu'
 import SearchButton from '@/components/react/SearchButton'
 import { NAV_LINKS } from '@/consts'
-import {
-  getLangFromUrl,
-  languages,
-  localizePath,
-  otherLang,
-  useTranslations,
-} from '@/i18n/ui'
+import { getLangFromUrl, localizePath, useTranslations } from '@/i18n/ui'
 import { Icon } from 'astro-icon/components'
 
-interface Props {
-  // Href of this page in the other language
-  alternateHref: string
-}
-
-const { alternateHref } = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const targetLang = otherLang(lang)
 
 const navItems = NAV_LINKS.map((item) => ({
   href: localizePath(item.href, lang),
@@ -80,19 +67,6 @@ const isExternalLink = (href: string) => {
         })}
       </nav>
       <div class="hidden h-6 w-px bg-border/60 md:block" aria-hidden="true"></div>
-      <!-- Full reload so every persisted island re-renders in the new language -->
-      <a
-        href={alternateHref}
-        hreflang={targetLang}
-        lang={targetLang}
-        title={t('lang.switch')}
-        aria-label={`${t('lang.switchLabel')}: ${languages[targetLang].label}`}
-        class="text-foreground/70 hover:text-foreground hover:bg-muted -my-2 flex h-8 items-center gap-1 rounded-md px-2 text-xs font-semibold tracking-wide transition-colors"
-        data-astro-reload
-      >
-        <Icon name="lucide:languages" class="size-4" aria-hidden="true" />
-        <span>{languages[targetLang].short}</span>
-      </a>
       <SearchButton client:idle lang={lang} />
       <MobileMenu client:idle lang={lang} />
       <ThemeToggle />

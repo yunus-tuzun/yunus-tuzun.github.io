@@ -9,7 +9,7 @@ import {
   getPostsByTag,
 } from '@/lib/data-utils'
 
-// getStaticPaths bodies shared by the default-language pages and their /tr wrappers
+// getStaticPaths bodies shared by the pages
 
 export async function blogPagePaths(paginate: PaginateFunction, lang: Lang) {
   const posts = await getAllPosts(lang)

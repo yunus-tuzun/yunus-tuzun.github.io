@@ -46,5 +46,5 @@
   <rect x="570" y="208" width="150" height="40" rx="8" fill="#fef3c7" stroke="#d97706"/>
   <text x="645" y="233" font-size="14" text-anchor="middle" fill="#78350f">Step history</text>
 
-  <text x="380" y="296" font-size="14" text-anchor="middle" fill="#475569">New behaviour = new rows. The engine code stays the same.</text>
+  <text x="380" y="296" font-size="14" text-anchor="middle" fill="#475569">New behavior = new rows. The engine code stays the same.</text>
 </svg>

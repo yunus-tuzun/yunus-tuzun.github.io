@@ -8,7 +8,6 @@ import { SITE, SOCIAL_LINKS } from '@/consts'
 // Get contact email from social links or use placeholder
 const contactEmail = SOCIAL_LINKS.find(link => link.label === 'Email')?.href.replace('mailto:', '') || 'your@email.com'
 const siteName = SITE.title
-const siteUrl = SITE.href
 ---
 
 <Layout class="max-w-3xl">
@@ -22,173 +21,77 @@ const siteUrl = SITE.href
         <h1 class="text-3xl font-bold m-0">Privacy Policy</h1>
       </div>
       <p class="text-muted-foreground text-sm m-0">
-        Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        Last updated: November 2, 2026
       </p>
     </div>
 
     <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Introduction</h2>
+      <h2 class="text-2xl font-semibold">Summary</h2>
       <p>
-        At {siteName}, we respect your privacy and are committed to protecting your personal data. 
-        This privacy policy explains how we collect, use, and safeguard your information when you visit our website.
+        {siteName} is a personal website of technical notes. It has no user accounts, newsletter,
+        comments, advertising, or analytics, and it sets no cookies of its own.
       </p>
     </section>
 
     <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Data Controller</h2>
-      <p>
-        The data controller for this website is:
-      </p>
+      <h2 class="text-2xl font-semibold">Website Operator</h2>
       <div class="rounded-lg border bg-muted/30 p-4">
-        <p class="m-0"><strong>{siteName}</strong></p>
+        <p class="m-0"><strong>Yunus Tüzün</strong></p>
         <p class="m-0 text-sm text-muted-foreground">Email: <a href={`mailto:${contactEmail}`} class="underline">{contactEmail}</a></p>
       </div>
     </section>
 
     <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Information We Collect</h2>
-      
-      <h3 class="text-xl font-semibold mt-6">1. Newsletter Subscriptions (Brevo)</h3>
-      <p>
-        When you subscribe to our newsletter, we collect:
-      </p>
-      <ul>
-        <li>Email address</li>
-        <li>Subscription date and time</li>
-        <li>IP address (for fraud prevention)</li>
-      </ul>
-      <p>
-        We use <strong>Brevo</strong> (formerly Sendinblue) to manage our newsletter subscriptions. 
-        Your email address is stored securely on Brevo's servers. You can unsubscribe at any time 
-        by clicking the unsubscribe link in any newsletter email or by contacting us directly.
-      </p>
-      <p>
-        <strong>Legal basis:</strong> Your explicit consent (GDPR Article 6(1)(a))
-      </p>
-      <p>
-        <strong>Data retention:</strong> Until you unsubscribe or request deletion
-      </p>
-
-      <h3 class="text-xl font-semibold mt-6">2. Advertising (Google Ads)</h3>
-      <p>
-        We use <strong>Google Ads</strong> to display advertisements on our website. Google may use cookies 
-        and similar technologies to:
-      </p>
-      <ul>
-        <li>Show personalized ads based on your interests</li>
-        <li>Measure ad performance</li>
-        <li>Conduct audience research</li>
-      </ul>
-      <p>
-        Google Ads uses the Transparency & Consent Framework (TCF) v2.2. When you visit our site, 
-        you'll be asked for consent to use your personal data for advertising purposes. You can manage 
-        or withdraw your consent at any time through the cookie consent banner or privacy settings.
-      </p>
-      <p>
-        Your personal data may be processed and shared with up to 141 TCF vendors and 69 ad partners 
-        as part of the advertising ecosystem.
-      </p>
-      <p>
-        For more information, please review 
-        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline">Google's Privacy Policy</a>.
-      </p>
-      <p>
-        <strong>Legal basis:</strong> Your explicit consent (GDPR Article 6(1)(a))
-      </p>
-
-      <h3 class="text-xl font-semibold mt-6">3. Analytics</h3>
-      <p>
-        We may use analytics services to understand how visitors interact with our website. 
-        This helps us improve our content and user experience. Analytics data is typically anonymized 
-        and aggregated.
-      </p>
-    </section>
-
-    <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Cookies</h2>
-      <p>
-        Our website uses cookies and similar tracking technologies. Cookies are small text files 
-        placed on your device when you visit our website. We use cookies for:
-      </p>
-      <ul>
-        <li>Advertising (Google Ads)</li>
-        <li>Website functionality and analytics</li>
-      </ul>
-      <p>
-        You can control cookies through your browser settings. However, disabling cookies may 
-        affect your ability to use certain features of our website.
-      </p>
-    </section>
-
-    <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Your Rights (GDPR)</h2>
-      <p>
-        Under the General Data Protection Regulation (GDPR), you have the following rights:
-      </p>
-      <ul>
-        <li><strong>Right to access:</strong> You can request a copy of the personal data we hold about you</li>
-        <li><strong>Right to rectification:</strong> You can request correction of inaccurate data</li>
-        <li><strong>Right to erasure:</strong> You can request deletion of your personal data</li>
-        <li><strong>Right to restrict processing:</strong> You can request limitation of how we process your data</li>
-        <li><strong>Right to data portability:</strong> You can request your data in a structured format</li>
-        <li><strong>Right to object:</strong> You can object to processing of your personal data</li>
-        <li><strong>Right to withdraw consent:</strong> You can withdraw consent at any time</li>
-      </ul>
-      <p>
-        To exercise any of these rights, please contact us at <a href={`mailto:${contactEmail}`} class="underline">{contactEmail}</a>.
-      </p>
-    </section>
-
-    <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Data Security</h2>
-      <p>
-        We implement appropriate technical and organizational measures to protect your personal data 
-        against unauthorized access, alteration, disclosure, or destruction. However, no method of 
-        transmission over the Internet is 100% secure.
-      </p>
-    </section>
-
-    <section class="space-y-4 mb-8">
       <h2 class="text-2xl font-semibold">Third-Party Services</h2>
       <p>
-        We use the following third-party services that may process your personal data:
+        Pages load from the services below. Like any web server, they receive technical data such as
+        your IP address and browser details when your browser connects to them.
       </p>
       <ul>
-        <li><strong>Brevo:</strong> Newsletter management - <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer" class="underline">Privacy Policy</a></li>
-        <li><strong>Google Ads:</strong> Advertising - <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="underline">Privacy Policy</a></li>
+        <li><strong>GitHub Pages:</strong> Hosts this website and logs visitor IP addresses for security purposes. Author profile images are also loaded from GitHub. See the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer" class="underline">GitHub Privacy Statement</a>.</li>
+        <li><strong>jsDelivr:</strong> Delivers a stylesheet used on note pages. See the <a href="https://www.jsdelivr.com/terms/privacy-policy-jsdelivr-net" target="_blank" rel="noopener noreferrer" class="underline">jsDelivr Privacy Policy</a>.</li>
       </ul>
     </section>
 
     <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Children's Privacy</h2>
+      <h2 class="text-2xl font-semibold">Data Stored in Your Browser</h2>
       <p>
-        Our website is not intended for children under 16 years of age. We do not knowingly collect 
-        personal data from children. If you believe we have collected data from a child, please 
-        contact us immediately.
+        This website uses your browser's local storage for your theme choice, recent searches, and a
+        cached search index. This data stays on your device and is not sent to the website operator.
+        You can remove it at any time by clearing your browser's site data.
+      </p>
+    </section>
+
+    <section class="space-y-4 mb-8">
+      <h2 class="text-2xl font-semibold">If You Send an Email</h2>
+      <p>
+        If you contact the operator by email, your address and message are used only to reply to you.
+      </p>
+    </section>
+
+    <section class="space-y-4 mb-8">
+      <h2 class="text-2xl font-semibold">Your Rights</h2>
+      <p>
+        Depending on where you live, data protection laws may give you the right to access, correct, or
+        delete your personal data, or to object to its processing. To make a request about data held by
+        the operator, write to <a href={`mailto:${contactEmail}`} class="underline">{contactEmail}</a>.
+      </p>
+    </section>
+
+    <section class="space-y-4 mb-8">
+      <h2 class="text-2xl font-semibold">External Links</h2>
+      <p>
+        Notes link to other websites, such as GitHub, LinkedIn, and SAP Community. Their own privacy
+        policies apply once you visit them.
       </p>
     </section>
 
     <section class="space-y-4 mb-8">
       <h2 class="text-2xl font-semibold">Changes to This Policy</h2>
       <p>
-        We may update this privacy policy from time to time. We will notify you of any changes by 
-        posting the new policy on this page and updating the "Last updated" date.
+        This policy may be updated from time to time. Changes are posted on this page with a new
+        "Last updated" date.
       </p>
-    </section>
-
-    <section class="space-y-4 mb-8">
-      <h2 class="text-2xl font-semibold">Contact Us</h2>
-      <p>
-        If you have any questions about this privacy policy or wish to exercise your rights, 
-        please contact us:
-      </p>
-      <div class="rounded-lg border bg-muted/30 p-4">
-        <p class="m-0"><strong>Email:</strong> <a href={`mailto:${contactEmail}`} class="underline">{contactEmail}</a></p>
-        <p class="m-0 text-sm text-muted-foreground mt-2">
-          We aim to respond to all inquiries within 30 days.
-        </p>
-      </div>
     </section>
   </article>
 </Layout>
-

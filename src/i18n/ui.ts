@@ -11,7 +11,7 @@ export const langs = Object.keys(languages) as Lang[]
 export const ui = {
   en: {
     'site.description':
-      'Notes on SAP, ABAP and UI5 development — small tools and practical solutions.',
+      'Notes on SAP, Software Development, Architecture and Practical Solutions',
     'nav.home': 'Home',
     'nav.blog': 'Notes',
     'nav.about': 'About',
@@ -36,11 +36,9 @@ export const ui = {
 
     'about.title': 'About',
     'about.p1':
-      'Works as an SAP Development Architect with 15+ years of experience and 60+ projects across telecommunications, energy, finance, manufacturing, and more.',
+      'works as an SAP Development Architect with 15+ years of experience and 60+ projects across telecommunications, energy, finance, manufacturing, and more.',
     'about.p2':
       'Works across SAP S/4HANA and ECC with ABAP, Fiori, SAPUI5, and SAP BTP, building clean-core extensions with RAP and CAP. Leads technical teams and uses AI-assisted development in daily delivery.',
-    'about.p3':
-      'Notes here are published in both English and Turkish.',
 
     'blog.title': 'Notes',
     'blog.page': 'Page',

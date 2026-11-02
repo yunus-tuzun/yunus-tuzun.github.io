@@ -3,7 +3,7 @@ import type { IconMap, NavLink, SocialLink, Site } from '@/types'
 export const SITE: Site = {
   title: 'Tuzun Space',
   description:
-    'Notes on SAP, ABAP and UI5 development — small tools and practical solutions.',
+    'Notes on SAP, Software Development, Architecture and Practical Solutions',
   href: 'https://tuzun.space',
   author: 'yunus-tuzun',
   locale: 'en-US',

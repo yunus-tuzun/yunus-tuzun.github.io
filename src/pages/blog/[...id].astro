@@ -17,6 +17,7 @@ import {
   getCombinedReadingTime,
   getParentId,
   getParentPost,
+  getPostImage,
   getPostReadingTime,
   getSubpostCount,
   getTOCSections,
@@ -91,6 +92,7 @@ try {
 
 <Layout
   hideFloatingSidebar={hasChildPosts || isCurrentSubpost}
+  image={getPostImage(post, Astro.site)}
 >
   <PostHead slot="head" post={post} />
   {

@@ -187,6 +187,14 @@ export function isSubpost(postId: string): boolean {
   return postId.includes('/')
 }
 
+// Share image: the post's own image if set, otherwise its generated card
+export function getPostImage(
+  post: CollectionEntry<'blog'>,
+  site: URL | undefined,
+): string {
+  return new URL(post.data.image?.src ?? `/og/blog/${post.id}.png`, site).href
+}
+
 export async function getParentPost(
   subpostId: string,
 ): Promise<CollectionEntry<'blog'> | null> {

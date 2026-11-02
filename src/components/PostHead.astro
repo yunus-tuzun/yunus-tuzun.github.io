@@ -1,6 +1,6 @@
 ---
 import { SITE } from '@/consts'
-import { isSubpost } from '@/lib/data-utils'
+import { getPostImage, isSubpost } from '@/lib/data-utils'
 import type { CollectionEntry } from 'astro:content'
 import { languages } from '@/i18n/ui'
 import { parseAuthors } from '@/lib/data-utils'
@@ -13,16 +13,13 @@ const { post } = Astro.props
 
 const title = post.data.title || SITE.title
 const description = post.data.description || SITE.description
-const image = new URL('/static/1200x630.png', Astro.site)
 const authorEntries = await parseAuthors(
   post.data.authors?.length ? post.data.authors : [SITE.author],
 )
 const author = authorEntries.map((a) => a.name).join(', ')
 
 const postUrl = new URL(Astro.url.pathname, Astro.site).href
-const postImage = post?.data?.image?.src
-  ? `${SITE.href}${post.data.image.src}`
-  : image.href
+const postImage = getPostImage(post, Astro.site)
 const publishedTime = post.data.date?.toISOString() || new Date().toISOString()
 // Use published time as modified time if no updatedDate field exists
 const modifiedTime = publishedTime
@@ -72,7 +69,6 @@ const articleSchema = {
 <!-- Enhanced Open Graph tags for AI/GEO optimization -->
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={postImage} />
 <meta property="og:image:alt" content={title} />
 <meta property="og:type" content="article" />
 <meta property="og:locale" content={languages[post.data.lang].ogLocale} />
@@ -91,7 +87,6 @@ const articleSchema = {
 <!-- Enhanced Twitter Card tags -->
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={postImage} />
 <meta name="twitter:image:alt" content={title} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content={author} />

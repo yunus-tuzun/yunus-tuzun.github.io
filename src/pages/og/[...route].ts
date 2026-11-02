@@ -1,11 +1,15 @@
 import { OGImageRoute } from 'astro-og-canvas'
+import { SITE } from '@/consts'
 
 // Content pages (blog posts, etc.)
 const contentPages = import.meta.glob('/src/content/**/*.{md,mdx}', { eager: true })
 const contentPagesMap = Object.entries(contentPages).reduce((acc, [path, page]) => {
   const newPath = path.replace('/src/content', '')
   return { ...acc, [newPath]: page }
-}, {})
+}, {
+  // Site-wide card (/og/default.png) for every page without its own card
+  '/default.md': { frontmatter: { title: 'Tuzun Space', description: SITE.description } },
+})
 
 export const { getStaticPaths, GET } = OGImageRoute({
   param: 'route',

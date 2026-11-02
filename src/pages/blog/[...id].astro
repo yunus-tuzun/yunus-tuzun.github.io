@@ -92,7 +92,10 @@ try {
 
 <Layout
   hideFloatingSidebar={hasChildPosts || isCurrentSubpost}
+  title={post.data.title}
+  description={post.data.description}
   image={getPostImage(post, Astro.site)}
+  ogType="article"
 >
   <PostHead slot="head" post={post} />
   {

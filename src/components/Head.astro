@@ -11,12 +11,14 @@ interface Props {
   title?: string
   description?: string
   image?: string
+  ogType?: string
 }
 
-const { 
-  title = SITE.title, 
+const {
+  title = SITE.title,
   description = t('site.description'),
-  image
+  image,
+  ogType = 'website'
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href
@@ -52,7 +54,7 @@ const ogImage = image || new URL('/og/default.png', Astro.site).href
   <link rel="canonical" href={canonicalURL} />
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={ogType} />
   <meta property="og:locale" content={languages[lang].ogLocale} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />

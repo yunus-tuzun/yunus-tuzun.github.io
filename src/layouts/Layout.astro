@@ -12,10 +12,20 @@ import { cn } from '@/lib/utils'
 interface Props {
   class?: string
   hideFloatingSidebar?: boolean
+  title?: string
+  description?: string
   image?: string
+  ogType?: string
 }
 
-const { class: className, hideFloatingSidebar = false, image } = Astro.props
+const {
+  class: className,
+  hideFloatingSidebar = false,
+  title,
+  description,
+  image,
+  ogType,
+} = Astro.props
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
 ---
@@ -25,7 +35,7 @@ const t = useTranslations(lang)
   class="bg-background text-foreground scheme-light-dark"
   lang={languages[lang].locale}
 >
-  <Head image={image}>
+  <Head title={title} description={description} image={image} ogType={ogType}>
     <slot name="head" />
   </Head>
   <body class="flex h-fit min-h-screen flex-col gap-y-6 font-sans" transition:persist>

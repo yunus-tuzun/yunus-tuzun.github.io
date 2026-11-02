@@ -1,7 +1,7 @@
 import type { IconMap, NavLink, SocialLink, Site } from '@/types'
 
 export const SITE: Site = {
-  title: 'Yunus Tüzün',
+  title: 'Tuzun Space',
   description:
     'Notes on SAP, ABAP and UI5 development — small tools and practical solutions.',
   href: 'https://tuzun.space',

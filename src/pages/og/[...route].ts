@@ -8,7 +8,7 @@ const contentPagesMap = Object.entries(contentPages).reduce((acc, [path, page]) 
   return { ...acc, [newPath]: page }
 }, {
   // Site-wide card (/og/default.png) for every page without its own card
-  '/default.md': { frontmatter: { title: 'Tuzun Space', description: SITE.description } },
+  '/default.md': { frontmatter: { title: SITE.title, description: SITE.description } },
 })
 
 export const { getStaticPaths, GET } = OGImageRoute({

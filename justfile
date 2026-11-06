@@ -1,4 +1,4 @@
-# Yunus Tüzün blogu (Astro) — yerel geliştirme komutları.
+# tuzun.space blogu (Astro) — yerel geliştirme komutları.
 # `just` tek başına listeyi gösterir.
 
 set windows-shell := ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-Command"]

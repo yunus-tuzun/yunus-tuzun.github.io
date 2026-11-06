@@ -1,5 +1,5 @@
 ---
-name: 'Yunus Tüzün'
+name: 'tuzun.space'
 avatar: 'https://github.com/yunus-tuzun.png'
 bio: 'SAP Development Architect with 15+ years of experience and 60+ projects. Works with ABAP, Fiori, SAPUI5 and SAP BTP on S/4HANA and ECC.'
 github: 'https://github.com/yunus-tuzun'

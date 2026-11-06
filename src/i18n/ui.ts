@@ -76,7 +76,7 @@ export const ui = {
     'footer.stayUpdated': 'Stay Updated',
     'footer.stayUpdatedSub': 'Get the latest notes delivered to your inbox.',
     'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
+    'footer.terms': 'Terms & Conditions',
     'footer.rights': 'All rights reserved.',
     'footer.theme': 'Theme',
 
